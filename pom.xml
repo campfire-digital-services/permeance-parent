@@ -304,6 +304,9 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
                                     <goals>
                                         <goal>check</goal>
                                     </goals>
+                                    <configuration>
+                                        <configLocation>https://raw.github.com/permeance/permeance-parent/master/permeance-checkstyle.xml</configLocation>
+                                    </configuration>
                                 </execution>
                             </executions>
                         </plugin>

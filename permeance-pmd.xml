@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This file is part of permeance-parent.
+
+permeance-parent is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
+
+permeance-parent is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+permeance-parent. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<ruleset name="permeance-pmd"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.svn.sourceforge.net/svnroot/pmd/tags/pmd/pmd_release_5_0_0/src/main/resources/ruleset_2_0_0.xsd"
+         xsi:noNamespaceSchemaLocation="https://pmd.svn.sourceforge.net/svnroot/pmd/tags/pmd/pmd_release_5_0_0/src/main/resources/ruleset_2_0_0.xsd">
+
+    <description>A custom rule-set for semi-sane and readable code standards.</description>
+
+    <rule ref="rulesets/basic.xml"/>
+
+    <rule ref="rulesets/braces.xml"/>
+
+    <rule ref="rulesets/clone.xml"/>
+
+    <rule ref="rulesets/codesize.xml"/>
+
+    <rule ref="rulesets/controversial.xml">
+        <!-- Nope - let's return as soon as we know so we can kill that branch of logic -->
+        <exclude name="OnlyOneReturn"/>
+        <!-- Nope - sometimes I really do want to compare if (x == null) { ... } -->
+        <exclude name="AvoidLiteralsInIfCondition"/>
+    </rule>
+
+    <rule ref="rulesets/coupling.xml"/>
+
+    <rule ref="rulesets/design.xml"/>
+
+    <rule ref="rulesets/finalizers.xml"/>
+
+    <rule ref="rulesets/imports.xml">
+        <!-- Personally, I'm all for the readability that comes from static imports -->
+        <exclude name="TooManyStaticImports"/>
+    </rule>
+
+    <rule ref="rulesets/j2ee.xml"/>
+
+    <rule ref="rulesets/javabeans.xml"/>
+
+    <rule ref="rulesets/naming.xml">
+        <exclude name="LongVariable"/>
+        <exclude name="PackageCase"/>
+    </rule>
+
+    <rule ref="rulesets/naming.xml/LongVariable">
+        <properties>
+            <!-- We have wide screens - let's have meaningful names -->
+            <property name="minimum" value="32"/>
+        </properties>
+    </rule>
+
+    <rule ref="rulesets/optimizations.xml"/>
+
+    <rule ref="rulesets/strictexception.xml"/>
+
+    <rule ref="rulesets/strings.xml">
+        <exclude name="AvoidDuplicateLiterals"/>
+    </rule>
+
+    <rule ref="rulesets/strings.xml/AvoidDuplicateLiterals">
+        <properties>
+            <!-- Quit complaining about duplicate annotation values -->
+            <property name="skipAnnotations" value="true"/>
+        </properties>
+    </rule>
+
+    <rule ref="rulesets/sunsecure.xml"/>
+
+    <rule ref="rulesets/typeresolution.xml"/>
+
+    <rule ref="rulesets/unusedcode.xml"/>
+
+</ruleset>

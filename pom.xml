@@ -65,7 +65,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
     <scm>
         <connection>scm:git:git@github.com:permeance/permeance-parent.git</connection>
         <developerConnection>scm:git:git@github.com:permeance/permeance-parent.git</developerConnection>
-        <url>scm:git:git@github.com:permeance/permeance-parent.git</url>
+        <url>https://github.com/permeance/permeance-parent</url>
     </scm>
 
     <issueManagement>

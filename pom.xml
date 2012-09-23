@@ -44,7 +44,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
     <licenses>
         <license>
             <name>GNU Lesser General Public License</name>
-            <url>http://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <url>http://www.gnu.org/licenses/lgpl-3.0-standalone.html</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -76,7 +76,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
 
     <issueManagement>
         <url>https://github.com/permeance/permeance-parent/issues</url>
-        <system>github issues</system>
+        <system>github</system>
     </issueManagement>
 
     <properties>
@@ -91,17 +91,11 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
         <maven-deploy-plugin.version>2.7</maven-deploy-plugin.version>
         <maven-enforcer-plugin.version>1.1.1</maven-enforcer-plugin.version>
         <maven-install-plugin.version>2.4</maven-install-plugin.version>
-        <maven-site-plugin.version>3.1</maven-site-plugin.version>
     </properties>
 
     <build>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>${maven-clean-plugin.version}</version>
-                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -116,11 +110,6 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
                         <testSource>${java.source}</testSource>
                         <testTarget>${java.target}</testTarget>
                     </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>${maven-deploy-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -146,33 +135,158 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
                         </execution>
                     </executions>
                 </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-install-plugin</artifactId>
-                    <version>${maven-install-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>${maven-site-plugin.version}</version>
-                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>${maven-clean-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>${maven-deploy-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
                 <version>${maven-enforcer-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>${maven-install-plugin.version}</version>
             </plugin>
         </plugins>
     </build>
 
     <profiles>
         <profile>
+            <id>documented</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Plugin versions -->
+                <maven-site-plugin.version>3.1</maven-site-plugin.version>
+                <!-- Reporting plugin versions -->
+                <license-maven-plugin.version>1.3</license-maven-plugin.version>
+                <maven-changelog-plugin.version>2.2</maven-changelog-plugin.version>
+                <maven-dependency-plugin.version>2.5.1</maven-dependency-plugin.version>
+                <maven-javadoc-plugin.version>2.8.1</maven-javadoc-plugin.version>
+                <maven-jxr-plugin.version>2.3</maven-jxr-plugin.version>
+                <maven-project-info-reports-plugin.version>2.5.1</maven-project-info-reports-plugin.version>
+                <maven-surefire-report-plugin.version>2.12.3</maven-surefire-report-plugin.version>
+                <taglist-maven-plugin.version>2.4</taglist-maven-plugin.version>
+                <versions-maven-plugin.version>1.3.1</versions-maven-plugin.version>
+            </properties>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-site-plugin</artifactId>
+                            <version>${maven-site-plugin.version}</version>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+            <reporting>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-changelog-plugin</artifactId>
+                        <version>${maven-changelog-plugin.version}</version>
+                        <configuration>
+                            <displayChangeSetDetailUrl>${project.scm.url}/commit/%REV%</displayChangeSetDetailUrl>
+                            <displayFileDetailUrl>${project.scm.url}/blob/master/%FILE%</displayFileDetailUrl>
+                            <displayFileRevDetailUrl>${project.scm.url}/blob/%REV%/%FILE%</displayFileRevDetailUrl>
+                            <!-- TODO this regex is probably a little generic, but there's not much we can do without http://jira.codehaus.org/browse/MCHANGELOG-125 -->
+                            <issueIDRegexPattern>\d+</issueIDRegexPattern>
+                            <issueLinkUrl>${project.issueManagement.url}/%ISSUE%</issueLinkUrl>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <version>${maven-dependency-plugin.version}</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${maven-javadoc-plugin.version}</version>
+                        <configuration>
+                            <detectLinks>true</detectLinks>
+                            <linksource>true</linksource>
+                            <serialwarn>true</serialwarn>
+                            <show>private</show>
+                            <source>${java.source}</source>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jxr-plugin</artifactId>
+                        <version>${maven-jxr-plugin.version}</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-project-info-reports-plugin</artifactId>
+                        <version>${maven-project-info-reports-plugin.version}</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-report-plugin</artifactId>
+                        <version>${maven-surefire-report-plugin.version}</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>license-maven-plugin</artifactId>
+                        <version>${license-maven-plugin.version}</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>taglist-maven-plugin</artifactId>
+                        <version>${taglist-maven-plugin.version}</version>
+                        <configuration>
+                            <tagListOptions>
+                                <tagClasses>
+                                    <tagClass>
+                                        <displayName>To-Do</displayName>
+                                        <tags>
+                                            <tag>
+                                                <matchString>TODO</matchString>
+                                                <matchType>ignoreCase</matchType>
+                                            </tag>
+                                            <tag>
+                                                <matchString>XXX</matchString>
+                                                <matchType>ignoreCase</matchType>
+                                            </tag>
+                                        </tags>
+                                    </tagClass>
+                                </tagClasses>
+                            </tagListOptions>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>versions-maven-plugin</artifactId>
+                        <version>${versions-maven-plugin.version}</version>
+                    </plugin>
+                </plugins>
+            </reporting>
+        </profile>
+        <profile>
             <id>paranoid</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
+            <properties>
+                <!-- Plugin versions -->
+                <cobertura-maven-plugin.version>2.5.2</cobertura-maven-plugin.version>
+                <findbugs-maven-plugin.version>2.5.2</findbugs-maven-plugin.version>
+                <maven-pmd-plugin.version>2.7.1</maven-pmd-plugin.version>
+            </properties>
             <build>
                 <pluginManagement>
                     <plugins>
@@ -265,12 +379,6 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
                     </plugin>
                 </plugins>
             </build>
-            <properties>
-                <!-- Plugin versions -->
-                <cobertura-maven-plugin.version>2.5.2</cobertura-maven-plugin.version>
-                <findbugs-maven-plugin.version>2.5.2</findbugs-maven-plugin.version>
-                <maven-pmd-plugin.version>2.7.1</maven-pmd-plugin.version>
-            </properties>
         </profile>
     </profiles>
 

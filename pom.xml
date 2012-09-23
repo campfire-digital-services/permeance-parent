@@ -58,11 +58,20 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
         </developer>
     </developers>
 
+    <prerequisites>
+        <maven>3.0</maven>
+    </prerequisites>
+
     <scm>
         <connection>scm:git:git@github.com:permeance/permeance-parent.git</connection>
         <developerConnection>scm:git:git@github.com:permeance/permeance-parent.git</developerConnection>
         <url>scm:git:git@github.com:permeance/permeance-parent.git</url>
     </scm>
+
+    <issueManagement>
+        <url>https://github.com/permeance/permeance-parent/issues</url>
+        <system>github issues</system>
+    </issueManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

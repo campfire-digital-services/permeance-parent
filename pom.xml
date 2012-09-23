@@ -74,9 +74,73 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
     </issueManagement>
 
     <properties>
+        <!-- Project properties -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.source>1.6</java.source>
+        <java.target>1.6</java.target>
+        <!-- Plugin versions -->
+        <maven-compiler-plugin.version>2.5.1</maven-compiler-plugin.version>
+        <maven-enforcer-plugin.version>1.1.1</maven-enforcer-plugin.version>
     </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <compilerArgument>-Xlint:all</compilerArgument>
+                        <showDeprecation>true</showDeprecation>
+                        <showWarnings>true</showWarnings>
+                        <source>${java.source}</source>
+                        <target>${java.target}</target>
+                        <testCompilerArgument>-Xlint:all</testCompilerArgument>
+                        <testSource>${java.source}</testSource>
+                        <testTarget>${java.target}</testTarget>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>${maven-enforcer-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>enforce</id>
+                            <goals>
+                                <goal>enforce</goal>
+                            </goals>
+                            <configuration>
+                                <rules>
+                                    <bannedDependencies>
+                                        <excludes>
+                                            <exclude>junit:junit</exclude>
+                                        </excludes>
+                                        <searchTransitive>true</searchTransitive>
+                                    </bannedDependencies>
+                                    <dependencyConvergence/>
+                                    <requireJavaVersion>
+                                        <version>[1.6.0,)</version>
+                                    </requireJavaVersion>
+                                    <requireMavenVersion>
+                                        <version>[3.0.0,)</version>
+                                    </requireMavenVersion>
+                                </rules>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
 

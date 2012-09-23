@@ -130,6 +130,12 @@ Once that is done, you can then use this module's artifacts as the parent coordi
 </parent>
 ```
 
+TODO
+====
+
+  + Put permeance-checkstyle.xml and permeance-pmd.xml somewhere resolvable by maven so they can be cached in the local
+    maven repository and things will work offline.
+
 License
 =======
 

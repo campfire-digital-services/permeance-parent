@@ -309,6 +309,9 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
                                 </execution>
                             </executions>
                             <configuration>
+                                <rulesets>
+                                    <ruleset>https://raw.github.com/permeance/permeance-parent/master/permeance-pmd.xml</ruleset>
+                                </rulesets>
                                 <targetJdk>${java.target}</targetJdk>
                             </configuration>
                         </plugin>

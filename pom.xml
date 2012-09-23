@@ -124,16 +124,34 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven-compiler-plugin.version}</version>
-                    <configuration>
-                        <compilerArgument>-Xlint:all</compilerArgument>
-                        <showDeprecation>true</showDeprecation>
-                        <showWarnings>true</showWarnings>
-                        <source>${java.source}</source>
-                        <target>${java.target}</target>
-                        <testCompilerArgument>-Xlint:all</testCompilerArgument>
-                        <testSource>${java.source}</testSource>
-                        <testTarget>${java.target}</testTarget>
-                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>compile</id>
+                            <goals>
+                                <goal>compile</goal>
+                            </goals>
+                            <configuration>
+                                <compilerArgument>-Xlint:all</compilerArgument>
+                                <showDeprecation>true</showDeprecation>
+                                <showWarnings>true</showWarnings>
+                                <source>${java.source}</source>
+                                <target>${java.target}</target>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>testCompile</id>
+                            <goals>
+                                <goal>testCompile</goal>
+                            </goals>
+                            <configuration>
+                                <showDeprecation>true</showDeprecation>
+                                <showWarnings>true</showWarnings>
+                                <testCompilerArgument>-Xlint:all</testCompilerArgument>
+                                <testSource>${java.source}</testSource>
+                                <testTarget>${java.target}</testTarget>
+                            </configuration>
+                        </execution>
+                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>

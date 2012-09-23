@@ -1,3 +1,18 @@
+<!--
+This file is part of permeance-parent.
+
+permeance-parent is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
+
+permeance-parent is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+permeance-parent. If not, see <http://www.gnu.org/licenses/>.
+-->
 Introduction
 ============
 
@@ -83,7 +98,7 @@ a couple of very useful maven configurations. Out of the box, you get:
         found during the execution of the 'paranoid' profile.
 
 Usage
------
+=====
 
 Until this artifact is hosted somewhere centrally, you'll need to check it out, and install it locally via the standard
 "mvn install" command. Something like:
@@ -112,3 +127,9 @@ Once that is done, you can then use this module's artifacts as the parent coordi
          <artifactId>permeance-parent</artifactId>
          <version>0.1-SNAPSHOT</version>
      </parent>
+
+License
+=======
+
+This project is licensed under the
+[GNU Lesser General Public License, Version 3](http://www.gnu.org/licenses/lgpl-3.0.html)

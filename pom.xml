@@ -22,12 +22,18 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
 
     <groupId>au.com.permeance</groupId>
     <artifactId>permeance-parent</artifactId>
-    <packaging>pom</packaging>
     <version>0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <name>permeance-parent</name>
     <description>A maven parent-pom for Permeance projects</description>
     <url>https://github.com/permeance/permeance-parent</url>
+    <inceptionYear>2012</inceptionYear>
+
+    <organization>
+        <name>Permeance Technologies</name>
+        <url>http://www.permeance.com.au</url>
+    </organization>
 
     <licenses>
         <license>
@@ -36,6 +42,21 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
             <distribution>repo</distribution>
         </license>
     </licenses>
+
+    <developers>
+        <developer>
+            <id>martinlau</id>
+            <name>Martin Lau</name>
+            <email>martin.lau@permeance.com.au</email>
+            <url>http://hum.ph</url>
+            <organization>Permeance Technologies</organization>
+            <organizationUrl>http://www.permeance.com.au</organizationUrl>
+            <roles>
+                <role>Project creator</role>
+            </roles>
+            <timezone>+10</timezone>
+        </developer>
+    </developers>
 
     <scm>
         <connection>scm:git:git@github.com:permeance/permeance-parent.git</connection>

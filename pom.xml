@@ -120,12 +120,6 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
                             </goals>
                             <configuration>
                                 <rules>
-                                    <bannedDependencies>
-                                        <excludes>
-                                            <exclude>junit:junit</exclude>
-                                        </excludes>
-                                        <searchTransitive>true</searchTransitive>
-                                    </bannedDependencies>
                                     <dependencyConvergence/>
                                     <requireJavaVersion>
                                         <version>[1.6.0,)</version>
@@ -148,6 +142,113 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>paranoid</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-pmd-plugin</artifactId>
+                            <version>${maven-pmd-plugin.version}</version>
+                            <executions>
+                                <execution>
+                                    <id>check</id>
+                                    <goals>
+                                        <goal>check</goal>
+                                    </goals>
+                                </execution>
+                                <execution>
+                                    <id>cpd-check</id>
+                                    <goals>
+                                        <goal>cpd-check</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                            <configuration>
+                                <targetJdk>${java.target}</targetJdk>
+                            </configuration>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>cobertura-maven-plugin</artifactId>
+                            <version>${cobertura-maven-plugin.version}</version>
+                            <executions>
+                                <execution>
+                                    <id>clean</id>
+                                    <goals>
+                                        <goal>clean</goal>
+                                    </goals>
+                                </execution>
+                                <execution>
+                                    <id>check</id>
+                                    <goals>
+                                        <goal>check</goal>
+                                    </goals>
+                                    <configuration>
+                                        <check>
+                                            <haltOnFailure>true</haltOnFailure>
+                                            <branchRate>75</branchRate>
+                                            <lineRate>75</lineRate>
+                                            <totalBranchRate>75</totalBranchRate>
+                                            <totalLineRate>75</totalLineRate>
+                                            <packageLineRate>75</packageLineRate>
+                                            <packageBranchRate>75</packageBranchRate>
+                                        </check>
+                                    </configuration>
+                                </execution>
+                            </executions>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>findbugs-maven-plugin</artifactId>
+                            <version>${findbugs-maven-plugin.version}</version>
+                            <executions>
+                                <execution>
+                                    <id>check</id>
+                                    <goals>
+                                        <goal>check</goal>
+                                    </goals>
+                                    <configuration>
+                                        <threshold>Low</threshold>
+                                        <effort>Max</effort>
+                                    </configuration>
+                                </execution>
+                            </executions>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-pmd-plugin</artifactId>
+                        <version>${maven-pmd-plugin.version}</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>cobertura-maven-plugin</artifactId>
+                        <version>${cobertura-maven-plugin.version}</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>findbugs-maven-plugin</artifactId>
+                        <version>${findbugs-maven-plugin.version}</version>
+                    </plugin>
+                </plugins>
+            </build>
+            <properties>
+                <!-- Plugin versions -->
+                <cobertura-maven-plugin.version>2.5.2</cobertura-maven-plugin.version>
+                <findbugs-maven-plugin.version>2.5.2</findbugs-maven-plugin.version>
+                <maven-pmd-plugin.version>2.7.1</maven-pmd-plugin.version>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>
 

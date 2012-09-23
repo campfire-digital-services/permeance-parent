@@ -103,30 +103,32 @@ Usage
 Until this artifact is hosted somewhere centrally, you'll need to check it out, and install it locally via the standard
 "mvn install" command. Something like:
 
-    ::shell
-    $ mvn install
-    [INFO] Scanning for projects...
-    [INFO]
-    [INFO] ------------------------------------------------------------------------
-    [INFO] Building permeance-parent 0.1-SNAPSHOT
-    [INFO] ------------------------------------------------------------------------
-    ...
-    [INFO] ------------------------------------------------------------------------
-    [INFO] BUILD SUCCESS
-    [INFO] ------------------------------------------------------------------------
-    [INFO] Total time: 2.742s
-    [INFO] Finished at: Mon May 21 21:21:52 EST 2012
-    [INFO] Final Memory: 4M/81M
-    [INFO] ------------------------------------------------------------------------
+```shell
+$ mvn install
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building permeance-parent 0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+...
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.742s
+[INFO] Finished at: Mon May 21 21:21:52 EST 2012
+[INFO] Final Memory: 4M/81M
+[INFO] ------------------------------------------------------------------------
+```
 
 Once that is done, you can then use this module's artifacts as the parent coordinates for your project:
 
-    ::xml
-    <parent>
-         <groupId>au.com.permeance</groupId>
-         <artifactId>permeance-parent</artifactId>
-         <version>0.1-SNAPSHOT</version>
-     </parent>
+```xml
+<parent>
+     <groupId>au.com.permeance</groupId>
+     <artifactId>permeance-parent</artifactId>
+     <version>0.1-SNAPSHOT</version>
+ </parent>
+```
 
 License
 =======

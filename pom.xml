@@ -441,9 +441,6 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
-            <properties>
-                <!-- Report plugin versions -->
-            </properties>
             <reporting>
                 <plugins>
                     <plugin>

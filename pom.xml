@@ -11,8 +11,15 @@
     <packaging>pom</packaging>
     <version>0.1-SNAPSHOT</version>
 
+    <scm>
+        <connection>scm:git:git@github.com:permeance/permeance-parent.git</connection>
+        <developerConnection>scm:git:git@github.com:permeance/permeance-parent.git</developerConnection>
+        <url>scm:git:git@github.com:permeance/permeance-parent.git</url>
+    </scm>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
 </project>

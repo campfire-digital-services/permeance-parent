@@ -11,6 +11,18 @@
     <packaging>pom</packaging>
     <version>0.1-SNAPSHOT</version>
 
+    <name>permeance-parent</name>
+    <description>A maven parent-pom for Permeance projects</description>
+    <url>https://github.com/permeance/permeance-parent</url>
+
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License</name>
+            <url>http://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
     <scm>
         <connection>scm:git:git@github.com:permeance/permeance-parent.git</connection>
         <developerConnection>scm:git:git@github.com:permeance/permeance-parent.git</developerConnection>

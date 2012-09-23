@@ -86,13 +86,22 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
         <java.source>1.6</java.source>
         <java.target>1.6</java.target>
         <!-- Plugin versions -->
+        <maven-clean-plugin.version>2.5</maven-clean-plugin.version>
         <maven-compiler-plugin.version>2.5.1</maven-compiler-plugin.version>
+        <maven-deploy-plugin.version>2.7</maven-deploy-plugin.version>
         <maven-enforcer-plugin.version>1.1.1</maven-enforcer-plugin.version>
+        <maven-install-plugin.version>2.4</maven-install-plugin.version>
+        <maven-site-plugin.version>3.1</maven-site-plugin.version>
     </properties>
 
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${maven-clean-plugin.version}</version>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -107,6 +116,11 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
                         <testSource>${java.source}</testSource>
                         <testTarget>${java.target}</testTarget>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>${maven-deploy-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -131,6 +145,16 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
                             </configuration>
                         </execution>
                     </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>${maven-install-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>${maven-site-plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>

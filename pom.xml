@@ -115,6 +115,9 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
         <maven-checkstyle-plugin.version>2.9.1</maven-checkstyle-plugin.version>
         <javancss-maven-plugin.version>2.0</javancss-maven-plugin.version>
         <jdepend-maven-plugin.version>2.0-beta-2</jdepend-maven-plugin.version>
+        <!-- Configuration locations -->
+        <maven-checkstyle-plugin.configLocation>https://raw.github.com/permeance/permeance-parent/master/permeance-checkstyle.xml</maven-checkstyle-plugin.configLocation>
+        <maven-pmd-plugin.ruleset>https://raw.github.com/permeance/permeance-parent/master/permeance-pmd.xml</maven-pmd-plugin.ruleset>
     </properties>
 
     <build>
@@ -336,7 +339,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
                                         <goal>check</goal>
                                     </goals>
                                     <configuration>
-                                        <configLocation>https://raw.github.com/permeance/permeance-parent/master/permeance-checkstyle.xml</configLocation>
+                                        <configLocation>${maven-checkstyle-plugin.configLocation}</configLocation>
                                     </configuration>
                                 </execution>
                             </executions>
@@ -361,7 +364,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
                             </executions>
                             <configuration>
                                 <rulesets>
-                                    <ruleset>https://raw.github.com/permeance/permeance-parent/master/permeance-pmd.xml</ruleset>
+                                    <ruleset>${maven-pmd-plugin.ruleset}</ruleset>
                                 </rulesets>
                                 <targetJdk>${java.target}</targetJdk>
                             </configuration>
@@ -473,6 +476,9 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-checkstyle-plugin</artifactId>
                         <version>${maven-checkstyle-plugin.version}</version>
+                        <configuration>
+                            <configLocation>${maven-checkstyle-plugin.configLocation}</configLocation>
+                        </configuration>
                     </plugin>
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>

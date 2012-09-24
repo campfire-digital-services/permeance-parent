@@ -19,10 +19,12 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
         "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
 <module name="Checker">
 
-    <module name="SuppressionCommentFilter">
-        <property name="offCommentFormat" value="CHECKSTYLE.OFF\: ([\w\|]+)"/>
-        <property name="onCommentFormat" value="CHECKSTYLE.ON\: ([\w\|]+)"/>
-        <property name="checkFormat" value="$1"/>
+    <module name="TreeWalker">
+        <module name="SuppressionCommentFilter">
+            <property name="offCommentFormat" value="CHECKSTYLE.OFF\: ([\w\|]+)"/>
+            <property name="onCommentFormat" value="CHECKSTYLE.ON\: ([\w\|]+)"/>
+            <property name="checkFormat" value="$1"/>
+        </module>
     </module>
 
     <!-- See http://checkstyle.sourceforge.net/config_annotation.html -->
@@ -131,7 +133,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
     <!-- See http://checkstyle.sourceforge.net/config_duplicates.html -->
     <module name="StrictDuplicateCode">
         <!-- Give enough room to skip the license header -->
-        <property name="min" value="20" />
+        <property name="min" value="20"/>
     </module>
 
     <!-- See http://checkstyle.sourceforge.net/config_imports.html -->
@@ -141,7 +143,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
         <module name="RedundantImport"/>
         <module name="UnusedImports"/>
         <module name="ImportOrder">
-            <property name="groups" value="au.com,com,java,javax,permeance" />
+            <property name="groups" value="au.com,com,java,javax,permeance"/>
             <property name="option" value="bottom"/>
             <property name="separated" value="true"/>
         </module>

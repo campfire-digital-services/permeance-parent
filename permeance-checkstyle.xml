@@ -20,7 +20,9 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
 <module name="Checker">
 
     <!-- See http://checkstyle.sourceforge.net/config.html -->
-    <module name="FileContentsHolder"/>
+    <module name="TreeWalker">
+        <module name="FileContentsHolder"/>
+    </module>
     <module name="SuppressionCommentFilter">
         <property name="offCommentFormat" value="CHECKSTYLE.OFF\: ([\w\|]+)"/>
         <property name="onCommentFormat" value="CHECKSTYLE.ON\: ([\w\|]+)"/>

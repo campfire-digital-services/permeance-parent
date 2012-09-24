@@ -123,7 +123,10 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
     </module>
 
     <!-- See http://checkstyle.sourceforge.net/config_duplicates.html -->
-    <module name="StrictDuplicateCode"/>
+    <module name="StrictDuplicateCode">
+        <!-- Give enough room to skip the license header -->
+        <property name="min" value="20" />
+    </module>
 
     <!-- See http://checkstyle.sourceforge.net/config_imports.html -->
     <module name="TreeWalker">

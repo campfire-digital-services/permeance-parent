@@ -132,7 +132,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
         <module name="RedundantImport"/>
         <module name="UnusedImports"/>
         <module name="ImportOrder">
-            <!-- TODO Add groups definition -->
+            <property name="groups" value="au.com,com,java,javax,permeance" />
             <property name="option" value="bottom"/>
             <property name="separated" value="true"/>
         </module>

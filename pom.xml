@@ -91,6 +91,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
         <maven-deploy-plugin.version>2.7</maven-deploy-plugin.version>
         <maven-enforcer-plugin.version>1.1.1</maven-enforcer-plugin.version>
         <maven-install-plugin.version>2.4</maven-install-plugin.version>
+        <maven-surefire-plugin.version>2.9</maven-surefire-plugin.version>
         <!-- Documented profile -->
         <!-- Plugin versions -->
         <maven-site-plugin.version>3.1</maven-site-plugin.version>
@@ -180,6 +181,24 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
                         </execution>
                     </executions>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>test</id>
+                            <goals>
+                                <goal>test</goal>
+                            </goals>
+                            <configuration>
+                                <parallel>both</parallel>
+                                <runOrder>random</runOrder>
+                                <threadCount>3</threadCount>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -202,6 +221,11 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
                 <version>${maven-install-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
             </plugin>
         </plugins>
     </build>

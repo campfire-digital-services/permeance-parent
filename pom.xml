@@ -235,11 +235,14 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
                             <issueLinkUrl>${project.issueManagement.url}/%ISSUE%</issueLinkUrl>
                         </configuration>
                     </plugin>
+                    <!-- See http://jira.codehaus.org/browse/MDEP-366 -->
+                    <!--
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-dependency-plugin</artifactId>
                         <version>${maven-dependency-plugin.version}</version>
                     </plugin>
+                    -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>

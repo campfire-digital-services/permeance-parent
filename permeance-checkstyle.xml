@@ -19,6 +19,12 @@ permeance-parent. If not, see <http://www.gnu.org/licenses/>.
         "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
 <module name="Checker">
 
+    <module name="SuppressionCommentFilter">
+        <property name="offCommentFormat" value="CHECKSTYLE.OFF\: ([\w\|]+)"/>
+        <property name="onCommentFormat" value="CHECKSTYLE.ON\: ([\w\|]+)"/>
+        <property name="checkFormat" value="$1"/>
+    </module>
+
     <!-- See http://checkstyle.sourceforge.net/config_annotation.html -->
     <module name="TreeWalker">
         <module name="AnnotationUseStyle"/>

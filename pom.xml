@@ -168,7 +168,6 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                             <configuration>
                                 <rules>
                                     <dependencyConvergence>
-                                        <message>All transitive dependencies must converge on a single version</message>
                                         <uniqueVersions>true</uniqueVersions>
                                     </dependencyConvergence>
                                     <requireJavaVersion>
@@ -180,6 +179,9 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                                         <version>[3.0.0,)</version>
                                     </requireMavenVersion>
                                     <requireNoRepositories>
+                                        <allowedRepositories>
+                                            <allowedRepository>sonatype-nexus-snapshots</allowedRepository>
+                                        </allowedRepositories>
                                         <message>External repositories should not be used (use a repository manager instead)</message>
                                     </requireNoRepositories>
                                     <requirePluginVersions>

@@ -13,8 +13,21 @@ FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with
 permeance-parent. If not, see <http://www.gnu.org/licenses/>.
 -->
+
 Introduction
 ============
+
+This project provides a common parent pom for use across all [Permeance Technologies](http://www.permeance.com.au)
+projects. It embodies the best practices we'd like to enforce across the organisation - while opening up compliance to
+those practices through the use of build profiles.
+
+This project is intended to be used for both Permeance internal projects, as well as for modules delivered to
+customers. It is well understood that customers may be using their own maven parents which may necessitate the
+re-integration of this project's configuration with their specific criteria. The existance of this project by no means
+excludes that option.
+
+What's in the box
+=================
 
 This module provides a [maven](http://maven.apache.org) parent-pom which can be used to defined artifacts which employ
 a couple of very useful maven configurations. Out of the box, you get:
@@ -100,41 +113,27 @@ a couple of very useful maven configurations. Out of the box, you get:
 Usage
 =====
 
-Until this artifact is hosted somewhere centrally, you'll need to check it out, and install it locally via the standard
-"mvn install" command. Something like:
-
-```shell
-$ mvn install
-[INFO] Scanning for projects...
-[INFO]
-[INFO] ------------------------------------------------------------------------
-[INFO] Building permeance-parent 0.1-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-...
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 2.742s
-[INFO] Finished at: Sun Sep 23 16:23:33 EST 2012
-[INFO] Final Memory: 4M/81M
-[INFO] ------------------------------------------------------------------------
-```
-
-Once that is done, you can then use this module's artifacts as the parent coordinates for your project:
+This module is hosted in central. To use it, you just define it as your own project's parent:
 
 ```xml
 <parent>
     <groupId>au.com.permeance</groupId>
     <artifactId>permeance-parent</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
 </parent>
 ```
 
 TODO
 ====
 
+  + Include file license header checks as part of checkstyle or equivalent.
+
   + Put permeance-checkstyle.xml and permeance-pmd.xml somewhere resolvable by maven so they can be cached in the local
     maven repository and things will work offline.
+
+  + IDE formatter configurations which match the checkstyle configuration.
+
+  + Maven archetypes for common liferay modules.
 
 License
 =======

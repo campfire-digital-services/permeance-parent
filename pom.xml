@@ -26,7 +26,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
 
     <groupId>au.com.permeance</groupId>
     <artifactId>permeance-parent</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>permeance-parent</name>
@@ -89,7 +89,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
         <maven-deploy-plugin.version>2.7</maven-deploy-plugin.version>
         <maven-enforcer-plugin.version>1.1.1</maven-enforcer-plugin.version>
         <maven-install-plugin.version>2.4</maven-install-plugin.version>
-        <maven-surefire-plugin.version>2.9</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>2.12.3</maven-surefire-plugin.version>
         <!-- Documented profile -->
         <!-- Plugin versions -->
         <maven-site-plugin.version>3.1</maven-site-plugin.version>
@@ -167,13 +167,31 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                             </goals>
                             <configuration>
                                 <rules>
-                                    <dependencyConvergence />
+                                    <dependencyConvergence>
+                                        <message>All transitive dependencies must converge on a single version</message>
+                                        <uniqueVersions>true</uniqueVersions>
+                                    </dependencyConvergence>
                                     <requireJavaVersion>
+                                        <message>Java 1.6.0+ is required to build</message>
                                         <version>[1.6.0,)</version>
                                     </requireJavaVersion>
                                     <requireMavenVersion>
+                                        <message>Maven 3.0.0+ is required to build</message>
                                         <version>[3.0.0,)</version>
                                     </requireMavenVersion>
+                                    <requireNoRepositories>
+                                        <message>External repositories should not be used (use a repository manager instead)</message>
+                                    </requireNoRepositories>
+                                    <requirePluginVersions>
+                                        <message>Plugin versions should be explicitly specified</message>
+                                    </requirePluginVersions>
+                                    <requireReleaseDeps>
+                                        <message>All dependencies should be released for us to release</message>
+                                        <onlyWhenRelease>true</onlyWhenRelease>
+                                    </requireReleaseDeps>
+                                    <requireUpperBoundDeps>
+                                        <message>Explicit direct dependencies shouldn't downgrade transitive dependencies</message>
+                                    </requireUpperBoundDeps>
                                 </rules>
                             </configuration>
                         </execution>

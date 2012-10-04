@@ -73,7 +73,8 @@ Welcome to ${project.name}.
     * A {{{http://maven.apache.org/plugins/maven-compiler-plugin}maven-compiler-plugin}} configuration for java 6, but
       which will be noisy with warnings so you can fix them.
 
-    * Several {{{http://maven.apache.org/guides/introduction/introduction-to-profiles.html}maven profiles}}:
+    * Several {{{http://maven.apache.org/guides/introduction/introduction-to-profiles.html}maven profiles}} to enable
+      additional functionality as desired.
 
 * Supported Profiles
 

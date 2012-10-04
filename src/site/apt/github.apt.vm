@@ -1,0 +1,65 @@
+~~ This file is part of permeance-parent.
+~~
+~~ permeance-parent is free software: you can redistribute it and/or modify it
+~~ under the terms of the GNU General Public License as published by the Free
+~~ Software Foundation, either version 3 of the License, or (at your option) any
+~~ later version.
+~~
+~~ permeance-parent is distributed in the hope that it will be useful, but WITHOUT
+~~ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+~~ FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+~~
+~~ You should have received a copy of the GNU General Public License along with
+~~ permeance-parent. If not, see <http://www.gnu.org/licenses />.
+
+~~ NOTE: For help with the syntax of this file, see: http://maven.apache.org/doxia/references/apt-format.html
+
+    ------
+    GitHub
+    ------
+    Martin Lau [martin.lau@permeance.com.au]
+    ------
+    2012-10-04
+    ------
+
+GitHub profile
+
+    This profile enables the {{{https://github.com/github/maven-plugins}github maven plugins}} for uploading artifacts
+    and site information for hosting via github.
+
+* Configuration
+
+    To configure the plugins in this profile, add something like the following to your ~/.m2/settings.xml:
+
++-----+
+<server>
+    <id>github</id>
+    <username>martinlau</username>
+    <password>sup3rs3cr3t</password>
+</server>
++-----+
+
+    The credentials contained in this setting will be used to publish the site and artifacts to the github repository
+    specified by the projects <scm>...</scm> element.
+
+* Included functionality
+
+** Artifact upload
+
+    The {{{https://github.com/github/maven-plugins#downloads-plugin}downloads-plugin}} is used to upload (yes, ironic)
+    the artifacts resulting from the build to git hub for users to download.
+
+    It's probably worth noting that this plugin shouldn't be used to publish artifacts which are likely to be used as
+    dependencies for other code. If this is your use case, you should be pushing to the
+    {{{http://oss.sonatype.org/}Sonatype OSS repository}}.
+
+** Site publishing
+
+    The {{{https://github.com/github/maven-plugins#site-plugin}site-plugin}} is used to upload the generated maven site
+    to github pages for hosting.
+
+    For an example, see the {{{http://permeance.github.com/permeance-parent/}maven site for this project}}.
+
+* Customisation
+
+    There is no customisation beyond the initial setup of this profile. Either use it or don't!

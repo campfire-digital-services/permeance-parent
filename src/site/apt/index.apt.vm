@@ -79,25 +79,6 @@ Welcome to ${project.name}.
 
 ** Paranoid Profile
 
-    The 'paranoid' profile enables additional build time checks using the plugins:
-
-    * {{{http://maven.apache.org/plugins/maven-checkstyle-plugin/}maven-checkstyle-plugin}} for checking source code
-      metrics against the rules defined in
-      {{{https://raw.github.com/permeance/permeance-parent/master/permeance-checkstyle.xml}permeance-checkstyle.xml}}.
-
-    * {{{http://maven.apache.org/plugins/maven-pmd-plugin/}maven-pmd-plugin}} for checking byte code metrics against
-      the rules defined in
-      {{{https://raw.github.com/permeance/permeance-parent/master/permeance-pmd.xml}permeance-pmd.xml}}
-
-    * {{{http://mojo.codehaus.org/cobertura-maven-plugin/}cobertura-maven-plugin}} for verifying unit test coverage of
-      atleast 75% across all lines and branches across all classes, packages and modules.
-
-    * {{{http://mojo.codehaus.org/findbugs-maven-plugin/}findbugs-maven-plugin}} for static byte code analysis to
-      locate probable bugs.
-
-    * {{{http://mojo.codehaus.org/javancss-maven-plugin/}javancss-maven-plugin}} for checking of various source metrics
-      such as size and complexity.
-
 ** Documented Profile
 
     The 'documented' profile enables project site generation via the

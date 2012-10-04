@@ -113,15 +113,25 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
         <cobertura-maven-plugin.version>2.5.2</cobertura-maven-plugin.version>
         <findbugs-maven-plugin.version>2.5.2</findbugs-maven-plugin.version>
         <maven-pmd-plugin.version>2.7.1</maven-pmd-plugin.version>
+        <!-- Configuration options -->
+        <cobertura-maven-plugin.branchRate>75</cobertura-maven-plugin.branchRate>
+        <cobertura-maven-plugin.lineRate>75</cobertura-maven-plugin.lineRate>
+        <cobertura-maven-plugin.totalBranchRate>75</cobertura-maven-plugin.totalBranchRate>
+        <cobertura-maven-plugin.totalLineRate>75</cobertura-maven-plugin.totalLineRate>
+        <cobertura-maven-plugin.packageLineRate>75</cobertura-maven-plugin.packageLineRate>
+        <cobertura-maven-plugin.packageBranchRate>75</cobertura-maven-plugin.packageBranchRate>
+        <findbugs-maven-plugin.threshold>Low</findbugs-maven-plugin.threshold>
+        <findbugs-maven-plugin.effort>Max</findbugs-maven-plugin.effort>
+        <javancss-maven-plugin.ccnLimit>10</javancss-maven-plugin.ccnLimit>
+        <javancss-maven-plugin.ncssLimit>100</javancss-maven-plugin.ncssLimit>
+        <maven-checkstyle-plugin.configLocation>https://raw.github.com/permeance/permeance-parent/master/permeance-checkstyle.xml</maven-checkstyle-plugin.configLocation>
+        <maven-pmd-plugin.ruleset>https://raw.github.com/permeance/permeance-parent/master/permeance-pmd.xml</maven-pmd-plugin.ruleset>
         <!-- Paranoid+documented profile -->
         <!-- Reporting plugin versions -->
         <maven-linkcheck-plugin.version>1.1</maven-linkcheck-plugin.version>
         <maven-checkstyle-plugin.version>2.9.1</maven-checkstyle-plugin.version>
         <javancss-maven-plugin.version>2.0</javancss-maven-plugin.version>
         <jdepend-maven-plugin.version>2.0-beta-2</jdepend-maven-plugin.version>
-        <!-- Configuration locations -->
-        <maven-checkstyle-plugin.configLocation>https://raw.github.com/permeance/permeance-parent/master/permeance-checkstyle.xml</maven-checkstyle-plugin.configLocation>
-        <maven-pmd-plugin.ruleset>https://raw.github.com/permeance/permeance-parent/master/permeance-pmd.xml</maven-pmd-plugin.ruleset>
     </properties>
 
     <build>
@@ -495,12 +505,12 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                                     <configuration>
                                         <check>
                                             <haltOnFailure>true</haltOnFailure>
-                                            <branchRate>75</branchRate>
-                                            <lineRate>75</lineRate>
-                                            <totalBranchRate>75</totalBranchRate>
-                                            <totalLineRate>75</totalLineRate>
-                                            <packageLineRate>75</packageLineRate>
-                                            <packageBranchRate>75</packageBranchRate>
+                                            <branchRate>${cobertura-maven-plugin.branchRate}</branchRate>
+                                            <lineRate>${cobertura-maven-plugin.lineRate}</lineRate>
+                                            <totalBranchRate>${cobertura-maven-plugin.totalBranchRate}</totalBranchRate>
+                                            <totalLineRate>${cobertura-maven-plugin.totalLineRate}</totalLineRate>
+                                            <packageLineRate>${cobertura-maven-plugin.packageLineRate}</packageLineRate>
+                                            <packageBranchRate>${cobertura-maven-plugin.packageBranchRate}</packageBranchRate>
                                         </check>
                                     </configuration>
                                 </execution>
@@ -517,8 +527,8 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                                         <goal>check</goal>
                                     </goals>
                                     <configuration>
-                                        <threshold>Low</threshold>
-                                        <effort>Max</effort>
+                                        <threshold>${findbugs-maven-plugin.threshold}</threshold>
+                                        <effort>${findbugs-maven-plugin.effort}</effort>
                                     </configuration>
                                 </execution>
                             </executions>
@@ -533,6 +543,10 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                                     <goals>
                                         <goal>check</goal>
                                     </goals>
+                                    <configuration>
+                                        <ccnLimit>${javancss-maven-plugin.ccnLimit}</ccnLimit>
+                                        <ncssLimit>${javancss-maven-plugin.ncssLimit}</ncssLimit>
+                                    </configuration>
                                 </execution>
                             </executions>
                         </plugin>

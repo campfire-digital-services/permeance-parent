@@ -27,10 +27,15 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
 
     <body>
         <breadcrumbs>
-            <item href="http://www.permeance.com.au"
-                  name="Permeance Technologies"
-                  target="_blank"/>
+            <item href="http://www.permeance.com.au" name="Permeance Technologies"/>
+            <item href="index.html" name="About" />
         </breadcrumbs>
+        <menu name="Included Profiles">
+            <!--<item href="documented.html" name="Documented"/>-->
+            <item href="github.html" name="GitHub"/>
+            <item href="paranoid.html" name="Paranoid"/>
+            <!--<item href="paranoid+documented.html" name="Paranoid + Documented"/>-->
+        </menu>
         <menu ref="reports"/>
     </body>
 

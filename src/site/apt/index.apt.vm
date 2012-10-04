@@ -45,6 +45,23 @@ Welcome to ${project.name}.
 </parent>
 +-----+
 
+* Goals
+
+    The goals of producing this parent pom are:
+
+    [[1]] Builds resulting from using this parent pom should be stable and reproducable.
+
+    [[2]] The default build execution should be thorough and execute a "standard" range of quality assurance checks
+          appropriate to the build phase being executed.
+
+    [[3]] Additional functionality is enabled through profiles which projects can then opt-into using (ie paranoid
+          checks, github integration, etc).
+
+    [[4]] Specifics of how a project is built (specific dependencies, frameworks, etc) are out of scope - each project
+          can make that informed choice.
+
+    [[5]] Anything that's available in this POM can be disabled or reconfigured by children.
+
 * What's in the box
 
     This module provides a {{{http://maven.apache.org}maven}} parent-pom which can be used to defined artifacts which
@@ -140,13 +157,11 @@ Welcome to ${project.name}.
 
 * TODO
 
-    * Include file license header checks as part of checkstyle or equivalent.
-
     * Put permeance-checkstyle.xml and permeance-pmd.xml somewhere resolvable by maven so they can be cached in the
       local maven repository and things will work offline.
+
+    * Include file license header checks as part of checkstyle or equivalent.
 
     * IDE formatter configurations which match the checkstyle configuration.
 
     * Maven archetypes for common liferay modules.
-
-    * GitHub integration for hosting of sites, etc (as a profile).

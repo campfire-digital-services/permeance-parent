@@ -15,7 +15,7 @@
 ~~ NOTE: For help with the syntax of this file, see: http://maven.apache.org/doxia/references/apt-format.html
 
     ------
-    Paranoid
+    Paranoid Profile
     ------
     Martin Lau [martin.lau@permeance.com.au]
     ------
@@ -134,6 +134,25 @@ Paranoid profile
     <javancss-maven-plugin.ncssLimit>100</javancss-maven-plugin.ncssLimit>
 </properties>
 +-----+
+
+* Site configuration
+
+    Running 'mvn site' with this profile enabled adds the following reports to the generated site:
+
+    * {{{http://maven.apache.org/plugins/maven-pmd-plugin/}maven-pmd-plugin}} for reporting on PMD checks and
+      violations found during execution of the 'paranoid' profile.
+
+    * {{{http://maven.apache.org/plugins/maven-checkstyle-plugin/}maven-checkstyle-plugin}} for reporting on checkstyle
+      violations found during execution of the 'paranoid' profile.
+
+    * {{{http://mojo.codehaus.org/findbugs-maven-plugin/}findbugs-maven-plugin}} for reporting on findbugs violations
+      found during execution of the 'paranoid' profile.
+
+    * {{{http://mojo.codehaus.org/cobertura-maven-plugin/}cobertura-maven-plugin}} for reporting on cobertura
+      violations found during the execution of the 'paranoid' profile.
+
+    * {{{http://mojo.codehaus.org/javancss-maven-plugin/}javancss-maven-plugin}} for reporting on JavaNCSS violations
+      found during the execution of the 'paranoid' profile.
 
 * Warning
 

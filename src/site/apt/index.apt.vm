@@ -73,6 +73,9 @@ Welcome to ${project.name}.
     * A {{{http://maven.apache.org/plugins/maven-compiler-plugin}maven-compiler-plugin}} configuration for java 6, but
       which will be noisy with warnings so you can fix them.
 
+    * Site generation using the {{{http://maven.apache.org/plugins/maven-site-plugin}maven-site-plugin}} to generate a
+      range of useful site reports.
+
     * Several {{{http://maven.apache.org/guides/introduction/introduction-to-profiles.html}maven profiles}} to enable
       additional functionality as desired.
 
@@ -80,14 +83,13 @@ Welcome to ${project.name}.
 
     For more information on the profiles contained within this module, see the specific pages describing them:
 
-    * {{{github.html}GitHub Profile}}
+    * {{{./github.html}GitHub Profile}}
 
-    * {{{paranoid.html}Paranoid Profile}}
+    * {{{./paranoid.html}Paranoid Profile}}
 
-** Documented Profile (TODO: Move these to separate pages)
+* Site configuration
 
-    The 'documented' profile enables project site generation via the
-    {{{http://maven.apache.org/plugins/maven-site-plugin/}maven-site-plugin}} with the reports:
+    Running 'mvn site' generates a report using:
 
     * {{{http://maven.apache.org/plugins/maven-changelog-plugin/}maven-changelog-plugin}} for reporting SCM changes.
 
@@ -120,26 +122,6 @@ Welcome to ${project.name}.
 
     * {{{http://mojo.codehaus.org/versions-maven-plugin/}versions-maven-plugin}} for reporting on dependency and plugin
     version statuses.
-
-** Paranoid+Documented Profile
-
-    The 'paranoid+documented' profile enables additional information in site generation based on the 'paranoid'
-    profile:
-
-    * {{{http://maven.apache.org/plugins/maven-pmd-plugin/}maven-pmd-plugin}} for reporting on PMD checks and
-      violations found during execution of the 'paranoid' profile.
-
-    * {{{http://maven.apache.org/plugins/maven-checkstyle-plugin/}maven-checkstyle-plugin}} for reporting on checkstyle
-      violations found during execution of the 'paranoid' profile.
-
-    * {{{http://mojo.codehaus.org/findbugs-maven-plugin/}findbugs-maven-plugin}} for reporting on findbugs violations
-      found during execution of the 'paranoid' profile.
-
-    * {{{http://mojo.codehaus.org/cobertura-maven-plugin/}cobertura-maven-plugin}} for reporting on cobertura
-      violations found during the execution of the 'paranoid' profile.
-
-    * {{{http://mojo.codehaus.org/javancss-maven-plugin/}javancss-maven-plugin}} for reporting on JavaNCSS violations
-      found during the execution of the 'paranoid' profile.
 
 * TODO
 

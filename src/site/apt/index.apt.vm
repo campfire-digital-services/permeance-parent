@@ -125,6 +125,8 @@ Welcome to ${project.name}.
 
 * TODO
 
+    * Put report plugin versions into plugin management so they're properly listed for version updates, etc.
+
     * Put permeance-checkstyle.xml and permeance-pmd.xml somewhere resolvable by maven so they can be cached in the
       local maven repository and things will work offline.
 

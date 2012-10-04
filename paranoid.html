@@ -11,7 +11,7 @@
     <meta name="Date-Creation-yyyymmdd" content="20121004" />
     <meta name="Date-Revision-yyyymmdd" content="20121004" />
     <meta http-equiv="Content-Language" content="en" />
-    <title>Paranoid</title>
+    <title>Paranoid Profile</title>
     <link rel="stylesheet" href="./css/apache-maven-fluido-1.3.0.min.css" />
     <link rel="stylesheet" href="./css/site.css" />
     <link rel="stylesheet" href="./css/print.css" media="print" />
@@ -59,12 +59,7 @@
         Permeance Technologies</a>
         </li>
       <li class="divider ">/</li>
-            <li class="">
-                    <a href="index.html" title="About">
-        About</a>
-        </li>
-      <li class="divider ">/</li>
-        <li class="">Paranoid</li>
+        <li class="">Paranoid Profile</li>
                 
                 
             
@@ -99,6 +94,13 @@
                           <a href="project-info.html" title="Project Information">
           <i class="icon-chevron-right"></i>
         Project Information</a>
+                  </li>
+                                                                                                                                                                                                                    
+      <li>
+    
+                          <a href="project-reports.html" title="Project Reports">
+          <i class="icon-chevron-right"></i>
+        Project Reports</a>
                   </li>
             </ul>
                 
@@ -171,7 +173,7 @@
 &lt;/properties&gt;</pre></div></div></div><div class="section"><h4>JavaNCSS<a name="JavaNCSS"></a></h4><p>The <a class="externalLink" href="http://mojo.codehaus.org/javancss-maven-plugin/">javancss-maven-plugin</a> for checking of various source metrics such as size and complexity.</p><div class="section"><h5>Configuration<a name="Configuration"></a></h5><p>The plugin is configured to use the standard CCN (10) and NCSS (100) limits. To change these, set the following site properties:</p><div class="source"><pre class="prettyprint linenums">&lt;properties&gt;
     &lt;javancss-maven-plugin.ccnLimit&gt;10&lt;/javancss-maven-plugin.ccnLimit&gt;
     &lt;javancss-maven-plugin.ncssLimit&gt;100&lt;/javancss-maven-plugin.ncssLimit&gt;
-&lt;/properties&gt;</pre></div></div></div></div><div class="section"><h3>Warning<a name="Warning"></a></h3><p>If you drop the limits of these properties just to make your project build - then someone will come around and smack your knuckles with a ruler. If you're using this profile, accept that you will be in for some pain and work with it. If you're at the point of needing things to compile so desperately that you need to drop numbers, then just don't use the profile (that's why it's in a profile in the first place!).</p></div></div>
+&lt;/properties&gt;</pre></div></div></div></div><div class="section"><h3>Site configuration<a name="Site_configuration"></a></h3><p>Running 'mvn site' with this profile enabled adds the following reports to the generated site:</p><ul><li><a class="externalLink" href="http://maven.apache.org/plugins/maven-pmd-plugin/">maven-pmd-plugin</a> for reporting on PMD checks and violations found during execution of the 'paranoid' profile.</li><li><a class="externalLink" href="http://maven.apache.org/plugins/maven-checkstyle-plugin/">maven-checkstyle-plugin</a> for reporting on checkstyle violations found during execution of the 'paranoid' profile.</li><li><a class="externalLink" href="http://mojo.codehaus.org/findbugs-maven-plugin/">findbugs-maven-plugin</a> for reporting on findbugs violations found during execution of the 'paranoid' profile.</li><li><a class="externalLink" href="http://mojo.codehaus.org/cobertura-maven-plugin/">cobertura-maven-plugin</a> for reporting on cobertura violations found during the execution of the 'paranoid' profile.</li><li><a class="externalLink" href="http://mojo.codehaus.org/javancss-maven-plugin/">javancss-maven-plugin</a> for reporting on JavaNCSS violations found during the execution of the 'paranoid' profile.</li></ul></div><div class="section"><h3>Warning<a name="Warning"></a></h3><p>If you drop the limits of these properties just to make your project build - then someone will come around and smack your knuckles with a ruler. If you're using this profile, accept that you will be in for some pain and work with it. If you're at the point of needing things to compile so desperately that you need to drop numbers, then just don't use the profile (that's why it's in a profile in the first place!).</p></div></div>
                   </div>
             </div>
           </div>

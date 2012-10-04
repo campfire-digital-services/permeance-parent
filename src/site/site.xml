@@ -24,8 +24,8 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
             <item href="http://www.permeance.com.au" name="Permeance Technologies"/>
         </breadcrumbs>
         <menu name="Included Profiles">
-            <item href="github.html" name="GitHub"/>
-            <item href="paranoid.html" name="Paranoid"/>
+            <item href="github.html" name="Github Profile"/>
+            <item href="paranoid.html" name="Paranoid Profile"/>
         </menu>
         <menu ref="reports"/>
     </body>

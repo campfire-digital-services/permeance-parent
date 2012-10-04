@@ -91,9 +91,11 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
         <maven-enforcer-plugin.version>1.1.1</maven-enforcer-plugin.version>
         <maven-install-plugin.version>2.4</maven-install-plugin.version>
         <maven-site-plugin.version>3.1</maven-site-plugin.version>
-        <maven-surefire-plugin.version>2.12.3</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>2.12.4</maven-surefire-plugin.version>
         <!-- Reporting plugin versions -->
         <license-maven-plugin.version>1.3</license-maven-plugin.version>
+        <maven-antrun-plugin.version>1.7</maven-antrun-plugin.version>
+        <maven-assembly-plugin.version>2.3</maven-assembly-plugin.version>
         <maven-changelog-plugin.version>2.2</maven-changelog-plugin.version>
         <maven-dependency-plugin.version>2.5.1</maven-dependency-plugin.version>
         <maven-javadoc-plugin.version>2.8.1</maven-javadoc-plugin.version>
@@ -103,14 +105,21 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
         <taglist-maven-plugin.version>2.4</taglist-maven-plugin.version>
         <versions-maven-plugin.version>1.3.1</versions-maven-plugin.version>
         <!-- Github profile -->
-        <github.global.server>github</github.global.server>
+        <!-- Plugin versions -->
         <downloads-maven-plugin.version>0.6</downloads-maven-plugin.version>
         <site-maven-plugin.version>0.7</site-maven-plugin.version>
+        <!-- Configuration options -->
+        <github.global.server>github</github.global.server>
         <!-- Paranoid profile -->
         <!-- Plugin versions -->
         <cobertura-maven-plugin.version>2.5.2</cobertura-maven-plugin.version>
         <findbugs-maven-plugin.version>2.5.2</findbugs-maven-plugin.version>
         <maven-pmd-plugin.version>2.7.1</maven-pmd-plugin.version>
+        <!-- Reporting plugin versions -->
+        <maven-linkcheck-plugin.version>1.1</maven-linkcheck-plugin.version>
+        <maven-checkstyle-plugin.version>2.9.1</maven-checkstyle-plugin.version>
+        <javancss-maven-plugin.version>2.0</javancss-maven-plugin.version>
+        <jdepend-maven-plugin.version>2.0-beta-2</jdepend-maven-plugin.version>
         <!-- Configuration options -->
         <cobertura-maven-plugin.branchRate>75</cobertura-maven-plugin.branchRate>
         <cobertura-maven-plugin.lineRate>75</cobertura-maven-plugin.lineRate>
@@ -124,12 +133,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
         <javancss-maven-plugin.ncssLimit>100</javancss-maven-plugin.ncssLimit>
         <maven-checkstyle-plugin.configLocation>https://raw.github.com/permeance/permeance-parent/master/permeance-checkstyle.xml</maven-checkstyle-plugin.configLocation>
         <maven-pmd-plugin.ruleset>https://raw.github.com/permeance/permeance-parent/master/permeance-pmd.xml</maven-pmd-plugin.ruleset>
-        <!-- Paranoid+documented profile -->
-        <!-- Reporting plugin versions -->
-        <maven-linkcheck-plugin.version>1.1</maven-linkcheck-plugin.version>
-        <maven-checkstyle-plugin.version>2.9.1</maven-checkstyle-plugin.version>
-        <javancss-maven-plugin.version>2.0</javancss-maven-plugin.version>
-        <jdepend-maven-plugin.version>2.0-beta-2</jdepend-maven-plugin.version>
+        <maven-release-plugin.version>2.3.2</maven-release-plugin.version>
     </properties>
 
     <reporting>
@@ -234,6 +238,16 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <version>${maven-antrun-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>${maven-assembly-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven-compiler-plugin.version}</version>
                     <executions>
@@ -264,6 +278,11 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                             </configuration>
                         </execution>
                     </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>${maven-dependency-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -308,6 +327,11 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                             </configuration>
                         </execution>
                     </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>${maven-release-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>

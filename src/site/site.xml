@@ -47,6 +47,10 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                 <ribbonColor>gray</ribbonColor>
             </gitHub>
             <leftColumnClass>span2</leftColumnClass>
+            <ohloh>
+                <projectId>permeance-parent</projectId>
+                <widget>stats</widget>
+            </ohloh>
             <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
             <twitter>
                 <user>permtech</user>

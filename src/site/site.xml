@@ -30,8 +30,6 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
             <item href="http://www.permeance.com.au"
                   name="Permeance Technologies"
                   target="_blank"/>
-            <item href="index.html"
-                  name="Permeance Parent"/>
         </breadcrumbs>
         <menu ref="reports"/>
     </body>

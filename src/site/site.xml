@@ -38,6 +38,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
 
     <custom>
         <fluidoSkin>
+            <bodyColumnClass>span10</bodyColumnClass>
             <facebookLike/>
             <googlePlusOne/>
             <gitHub>
@@ -45,6 +46,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                 <ribbonOrientation>right</ribbonOrientation>
                 <ribbonColor>gray</ribbonColor>
             </gitHub>
+            <leftColumnClass>span2</leftColumnClass>
             <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
             <twitter>
                 <user>permtech</user>

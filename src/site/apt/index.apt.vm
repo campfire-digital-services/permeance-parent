@@ -1,0 +1,153 @@
+    ------
+    About
+    ------
+    Martin Lau [martin.lau@permeance.com.au]
+    ------
+    2012-10-04
+    ------
+
+~~ This file is part of permeance-parent.
+~~
+~~ permeance-parent is free software: you can redistribute it and/or modify it
+~~ under the terms of the GNU General Public License as published by the Free
+~~ Software Foundation, either version 3 of the License, or (at your option) any
+~~ later version.
+~~
+~~ permeance-parent is distributed in the hope that it will be useful, but WITHOUT
+~~ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+~~ FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+~~
+~~ You should have received a copy of the GNU General Public License along with
+~~ permeance-parent. If not, see <http://www.gnu.org/licenses />.
+
+~~ NOTE: For help with the syntax of this file, see:
+~~ http://maven.apache.org/doxia/references/apt-format.html
+
+Welcome to ${project.name}.
+
+    This project provides a common parent pom for use across all
+    {{{http://www.permeance.com.au}Permeance Technologies}} projects. It embodies the best practices we'd like to
+    enforce across the organisation - while opening up compliance to those practices through the use of build profiles.
+
+    This project is intended to be used for both Permeance internal projects, as well as for modules delivered to
+    customers. It is well understood that customers may be using their own maven parents which may necessitate the
+    re-integration of this project's configuration with their specific criteria. The existance of this project by no
+    means excludes that option.
+
+* Usage
+
+    This module is hosted in central. To use it, you just define it as your own project's parent:
+
++-----+
+<parent>
+    <groupId>au.com.permeance</groupId>
+    <artifactId>permeance-parent</artifactId>
+    <version>0.1</version>
+</parent>
++-----+
+
+* What's in the box
+
+    This module provides a {{{http://maven.apache.org}maven}} parent-pom which can be used to defined artifacts which
+    employ a couple of very useful maven configurations. Out of the box, you get:
+
+    * A {{{http://maven.apache.org/plugins/maven-enforcer-plugin}maven-enforcer-plugin}} configuration which will
+      require proper dependency management.
+
+    * A {{{http://maven.apache.org/plugins/maven-compiler-plugin}maven-compiler-plugin}} configuration for java 6, but
+      which will be noisy with warnings so you can fix them.
+
+    * Several {{{http://maven.apache.org/guides/introduction/introduction-to-profiles.html}maven profiles}}:
+
+* Supported Profiles
+
+** Paranoid Profile
+
+    The 'paranoid' profile enables additional build time checks using the plugins:
+
+    * {{{http://maven.apache.org/plugins/maven-checkstyle-plugin/}maven-checkstyle-plugin}} for checking source code
+      metrics against the rules defined in
+      {{{https://raw.github.com/permeance/permeance-parent/master/permeance-checkstyle.xml}permeance-checkstyle.xml}}.
+
+    * {{{http://maven.apache.org/plugins/maven-pmd-plugin/}maven-pmd-plugin}} for checking byte code metrics against
+      the rules defined in
+      {{{https://raw.github.com/permeance/permeance-parent/master/permeance-pmd.xml}permeance-pmd.xml}}
+
+    * {{{http://mojo.codehaus.org/cobertura-maven-plugin/}cobertura-maven-plugin}} for verifying unit test coverage of
+      atleast 75% across all lines and branches across all classes, packages and modules.
+
+    * {{{http://mojo.codehaus.org/findbugs-maven-plugin/}findbugs-maven-plugin}} for static byte code analysis to
+      locate probable bugs.
+
+    * {{{http://mojo.codehaus.org/javancss-maven-plugin/}javancss-maven-plugin}} for checking of various source metrics
+      such as size and complexity.
+
+** Documented Profile
+
+    The 'documented' profile enables project site generation via the
+    {{{http://maven.apache.org/plugins/maven-site-plugin/}maven-site-plugin}} with the reports:
+
+    * {{{http://maven.apache.org/plugins/maven-changelog-plugin/}maven-changelog-plugin}} for reporting SCM changes.
+
+    * {{{http://maven.apache.org/plugins/maven-dependency-plugin/}maven-dependency-plugin}} for summarising dependency
+    information.
+
+    * {{{http://maven.apache.org/plugins/maven-javadoc-plugin/}maven-javadoc-plugin}} for incorporating generated
+    javadocs from project source within the site.
+
+    * {{{http://maven.apache.org/plugins/maven-jxr-plugin/}maven-jxr-plugin}} for incorporating java source cross
+    reference within the site.
+
+    * {{{http://maven.apache.org/plugins/maven-linkcheck-plugin/}maven-linkcheck-plugin}} for checking generated html
+    links within project reports.
+
+    * {{{http://maven.apache.org/plugins/maven-project-info-reports-plugin/}maven-project-info-reports-plugin}} for
+    generating miscellaneous reports on project information.
+
+    * {{{http://maven.apache.org/plugins/maven-surefire-report-plugin/}maven-surefire-report-plugin}} for reporting
+    on unit test outcomes.
+
+    * {{{http://mojo.codehaus.org/jdepend-maven-plugin/}jdepend-maven-plugin}} for generating package and class
+    dependency reports.
+
+    * {{{http://mojo.codehaus.org/license-maven-plugin/}license-maven-plugin}} for reporting on the licenses used by
+    project dependencies.
+
+    * {{{http://mojo.codehaus.org/taglist-maven-plugin/}taglist-maven-plugin}} for reporting on TODO's within project
+    source code.
+
+    * {{{http://mojo.codehaus.org/versions-maven-plugin/}versions-maven-plugin}} for reporting on dependency and plugin
+    version statuses.
+
+** Paranoid+Documented Profile
+
+    The 'paranoid+documented' profile enables additional information in site generation based on the 'paranoid'
+    profile:
+
+    * {{{http://maven.apache.org/plugins/maven-pmd-plugin/}maven-pmd-plugin}} for reporting on PMD checks and
+      violations found during execution of the 'paranoid' profile.
+
+    * {{{http://maven.apache.org/plugins/maven-checkstyle-plugin/}maven-checkstyle-plugin}} for reporting on checkstyle
+      violations found during execution of the 'paranoid' profile.
+
+    * {{{http://mojo.codehaus.org/findbugs-maven-plugin/}findbugs-maven-plugin}} for reporting on findbugs violations
+      found during execution of the 'paranoid' profile.
+
+    * {{{http://mojo.codehaus.org/cobertura-maven-plugin/}cobertura-maven-plugin}} for reporting on cobertura
+      violations found during the execution of the 'paranoid' profile.
+
+    * {{{http://mojo.codehaus.org/javancss-maven-plugin/}javancss-maven-plugin}} for reporting on JavaNCSS violations
+      found during the execution of the 'paranoid' profile.
+
+* TODO
+
+    * Include file license header checks as part of checkstyle or equivalent.
+
+    * Put permeance-checkstyle.xml and permeance-pmd.xml somewhere resolvable by maven so they can be cached in the
+      local maven repository and things will work offline.
+
+    * IDE formatter configurations which match the checkstyle configuration.
+
+    * Maven archetypes for common liferay modules.
+
+    * GitHub integration for hosting of sites, etc (as a profile).

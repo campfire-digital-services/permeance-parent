@@ -22,6 +22,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
     <body>
         <breadcrumbs>
             <item href="http://www.permeance.com.au" name="Permeance Technologies"/>
+            <item href="index.html" name="permeance-parent"/>
         </breadcrumbs>
         <menu name="Included Profiles">
             <item href="github.html" name="Github Profile"/>

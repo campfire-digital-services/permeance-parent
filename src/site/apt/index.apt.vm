@@ -77,9 +77,13 @@ Welcome to ${project.name}.
 
 * Supported Profiles
 
-** Paranoid Profile
+    For more information on the profiles contained within this module, see the specific pages describing them:
 
-** Documented Profile
+    * {{{github.html}GitHub Profile}}
+
+    * {{{paranoid.html}Paranoid Profile}}
+
+** Documented Profile (TODO: Move these to separate pages)
 
     The 'documented' profile enables project site generation via the
     {{{http://maven.apache.org/plugins/maven-site-plugin/}maven-site-plugin}} with the reports:

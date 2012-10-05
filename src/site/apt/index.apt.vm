@@ -37,13 +37,13 @@ Welcome to ${project.name}.
 
     This module is hosted in central. To use it, you just define it as your own project's parent:
 
-+-----+
+-------
 <parent>
     <groupId>au.com.permeance</groupId>
     <artifactId>permeance-parent</artifactId>
     <version>0.2</version>
 </parent>
-+-----+
+-------
 
 * Goals
 

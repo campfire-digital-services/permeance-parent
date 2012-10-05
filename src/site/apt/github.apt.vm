@@ -31,13 +31,13 @@ GitHub profile
 
     To configure the plugins in this profile, add something like the following to your ~/.m2/settings.xml:
 
-+-----+
+-------
 <server>
     <id>github</id>
     <username>martinlau</username>
     <password>sup3rs3cr3t</password>
 </server>
-+-----+
+-------
 
     The credentials contained in this setting will be used to publish the site and artifacts to the github repository
     specified by the projects <scm>...</scm> element.

@@ -95,11 +95,13 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
         <java.source>1.6</java.source>
         <java.target>1.6</java.target>
         <!-- Plugin versions -->
+        <build-resources.version>0.1-SNAPSHOT</build-resources.version>
         <maven-clean-plugin.version>2.5</maven-clean-plugin.version>
         <maven-compiler-plugin.version>2.5.1</maven-compiler-plugin.version>
         <maven-deploy-plugin.version>2.7</maven-deploy-plugin.version>
         <maven-enforcer-plugin.version>1.1.1</maven-enforcer-plugin.version>
         <maven-install-plugin.version>2.4</maven-install-plugin.version>
+        <maven-jar-plugin.version>2.4</maven-jar-plugin.version>
         <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
         <maven-site-plugin.version>3.1</maven-site-plugin.version>
         <maven-surefire-plugin.version>2.12.4</maven-surefire-plugin.version>
@@ -143,8 +145,8 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
         <findbugs-maven-plugin.effort>Max</findbugs-maven-plugin.effort>
         <javancss-maven-plugin.ccnLimit>10</javancss-maven-plugin.ccnLimit>
         <javancss-maven-plugin.ncssLimit>100</javancss-maven-plugin.ncssLimit>
-        <maven-checkstyle-plugin.configLocation>https://raw.github.com/permeance/permeance-parent/master/permeance-checkstyle.xml</maven-checkstyle-plugin.configLocation>
-        <maven-pmd-plugin.ruleset>https://raw.github.com/permeance/permeance-parent/master/permeance-pmd.xml</maven-pmd-plugin.ruleset>
+        <maven-checkstyle-plugin.configLocation>/permeance-checkstyle.xml</maven-checkstyle-plugin.configLocation>
+        <maven-pmd-plugin.ruleset>/permeance-pmd.xml</maven-pmd-plugin.ruleset>
         <maven-release-plugin.version>2.3.2</maven-release-plugin.version>
     </properties>
 
@@ -342,6 +344,11 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven-jar-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-release-plugin</artifactId>
                     <version>${maven-release-plugin.version}</version>
                 </plugin>
@@ -493,6 +500,13 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                                     </configuration>
                                 </execution>
                             </executions>
+                            <dependencies>
+                                <dependency>
+                                    <groupId>au.com.permeance</groupId>
+                                    <artifactId>build-resources</artifactId>
+                                    <version>${build-resources.version}</version>
+                                </dependency>
+                            </dependencies>
                         </plugin>
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
@@ -518,6 +532,13 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                                 </rulesets>
                                 <targetJdk>${java.target}</targetJdk>
                             </configuration>
+                            <dependencies>
+                                <dependency>
+                                    <groupId>au.com.permeance</groupId>
+                                    <artifactId>build-resources</artifactId>
+                                    <version>${build-resources.version}</version>
+                                </dependency>
+                            </dependencies>
                         </plugin>
                         <plugin>
                             <groupId>org.codehaus.mojo</groupId>

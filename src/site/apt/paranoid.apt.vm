@@ -30,9 +30,10 @@ Paranoid profile
 
 ** Checkstyle
 
-    The {{{http://maven.apache.org/plugins/maven-checkstyle-plugin/}maven-checkstyle-plugin}} for checking source code
+    The
+    {{{http://maven.apache.org/plugins/maven-checkstyle-plugin/}maven-checkstyle-plugin}}} for checking source code
     metrics against the rules defined in the build-resources module:
-    {{{https://raw.github.com/permeance/build-resources/master/src/main/resources/permeance-checkstyle.xml}}.
+    {{https://raw.github.com/permeance/build-resources/master/src/main/resources/permeance-checkstyle.xml}}.
 
 *** Configuration
 
@@ -50,7 +51,7 @@ Paranoid profile
 
     The {{{http://maven.apache.org/plugins/maven-pmd-plugin/}maven-pmd-plugin}} for checking byte code metrics against
     the rules defined in the build-resources module:
-    {{{https://raw.github.com/permeance/build-resources/master/src/main/resources/permeance-pmd.xml}}
+    {{https://raw.github.com/permeance/build-resources/master/src/main/resources/permeance-pmd.xml}}
 
 *** Configuration
 

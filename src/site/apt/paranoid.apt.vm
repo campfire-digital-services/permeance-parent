@@ -31,13 +31,14 @@ Paranoid profile
 ** Checkstyle
 
     The {{{http://maven.apache.org/plugins/maven-checkstyle-plugin/}maven-checkstyle-plugin}} for checking source code
-    metrics against the rules defined in
-    {{{https://raw.github.com/permeance/permeance-parent/master/permeance-checkstyle.xml}permeance-checkstyle.xml}}.
+    metrics against the rules defined in the build-resources module:
+    {{{https://raw.github.com/permeance/build-resources/master/src/main/resources/permeance-checkstyle.xml}}.
 
 *** Configuration
 
     To use an alternative checkstyle configuration (the default is
-    {{https://raw.github.com/permeance/permeance-parent/master/permeance-checkstyle.xml}}), define the property:
+    {{https://raw.github.com/permeance/build-resources/master/src/main/resources/permeance-checkstyle.xml}}), define
+    the property:
 
 -------
 <properties>
@@ -48,13 +49,14 @@ Paranoid profile
 ** PMD
 
     The {{{http://maven.apache.org/plugins/maven-pmd-plugin/}maven-pmd-plugin}} for checking byte code metrics against
-    the rules defined in
-    {{{https://raw.github.com/permeance/permeance-parent/master/permeance-pmd.xml}permeance-pmd.xml}}
+    the rules defined in the build-resources module:
+    {{{https://raw.github.com/permeance/build-resources/master/src/main/resources/permeance-pmd.xml}}
 
 *** Configuration
 
     To use an alternative PMD configuration (the default is
-    {{https://raw.github.com/permeance/permeance-parent/master/permeance-pmd.xml}}), define the property:
+    {{https://raw.github.com/permeance/build-resources/master/src/main/resources/permeance-pmd.xml}}), define the
+    property:
 
 -------
 <properties>

@@ -129,6 +129,9 @@ Welcome to ${project.name}.
 
     * Include file license header checks as part of checkstyle or equivalent.
 
-    * IDE formatter configurations which match the checkstyle configuration.
-
     * Maven archetypes for common liferay modules.
+
+* License
+
+    This project is licensed under the
+    {{{http://www.gnu.org/licenses/lgpl-3.0.html}GNU Lesser General Public License, Version 3}}

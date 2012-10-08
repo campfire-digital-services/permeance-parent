@@ -640,6 +640,9 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-pmd-plugin</artifactId>
                         <version>${maven-pmd-plugin.version}</version>
+                        <configuration>
+                            <targetJdk>${java.target}</targetJdk>
+                        </configuration>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>

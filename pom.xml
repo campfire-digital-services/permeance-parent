@@ -129,6 +129,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
         <cobertura-maven-plugin.version>2.5.2</cobertura-maven-plugin.version>
         <findbugs-maven-plugin.version>2.5.2</findbugs-maven-plugin.version>
         <maven-pmd-plugin.version>2.7.1</maven-pmd-plugin.version>
+        <pitest-maven.version>0.28</pitest-maven.version>
         <!-- Reporting plugin versions -->
         <maven-linkcheck-plugin.version>1.1</maven-linkcheck-plugin.version>
         <maven-checkstyle-plugin.version>2.9.1</maven-checkstyle-plugin.version>
@@ -600,6 +601,41 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                                     <configuration>
                                         <ccnLimit>${javancss-maven-plugin.ccnLimit}</ccnLimit>
                                         <ncssLimit>${javancss-maven-plugin.ncssLimit}</ncssLimit>
+                                    </configuration>
+                                </execution>
+                            </executions>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.pitest</groupId>
+                            <artifactId>pitest-maven</artifactId>
+                            <version>${pitest-maven.version}</version>
+                            <executions>
+                                <execution>
+                                    <id>mutationCoverage</id>
+                                    <goals>
+                                        <goal>mutationCoverage</goal>
+                                    </goals>
+                                    <configuration>
+                                        <avoidCallsTo>
+                                            <avoidCallsTo>java.util.logging</avoidCallsTo>
+                                            <avoidCallsTo>org.apache.log4j</avoidCallsTo>
+                                            <avoidCallsTo>org.slf4j</avoidCallsTo>
+                                            <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+                                            <avoidCallsTo>com.liferay.portal.kernel.log</avoidCallsTo>
+                                        </avoidCallsTo>
+                                        <mutateStaticInitializers>true</mutateStaticInitializers>
+                                        <mutators>
+                                            <mutator>CONDITIONALS_BOUNDARY</mutator>
+                                            <mutator>NEGATE_CONDITIONALS</mutator>
+                                            <mutator>MATH</mutator>
+                                            <mutator>INCREMENTS</mutator>
+                                            <mutator>INVERT_NEGS</mutator>
+                                            <mutator>INLINE_CONSTS</mutator>
+                                            <mutator>RETURN_VALS</mutator>
+                                            <mutator>VOID_METHOD_CALLS</mutator>
+                                            <mutator>NON_VOID_METHOD_CALLS</mutator>
+                                            <mutator>CONSTRUCTOR_CALLS</mutator>
+                                        </mutators>
                                     </configuration>
                                 </execution>
                             </executions>

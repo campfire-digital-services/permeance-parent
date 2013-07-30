@@ -345,7 +345,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin.version}</version>
                     <configuration>
-                        <parallel>both</parallel>
+                        <parallel>classes</parallel>
                         <runOrder>random</runOrder>
                         <threadCount>3</threadCount>
                     </configuration>

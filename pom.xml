@@ -265,34 +265,16 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven-compiler-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <id>compile</id>
-                            <goals>
-                                <goal>compile</goal>
-                            </goals>
-                            <configuration>
-                                <compilerArgument>-Xlint:all</compilerArgument>
-                                <showDeprecation>true</showDeprecation>
-                                <showWarnings>true</showWarnings>
-                                <source>${java.source}</source>
-                                <target>${java.target}</target>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>testCompile</id>
-                            <goals>
-                                <goal>testCompile</goal>
-                            </goals>
-                            <configuration>
-                                <showDeprecation>true</showDeprecation>
-                                <showWarnings>true</showWarnings>
-                                <testCompilerArgument>-Xlint:all</testCompilerArgument>
-                                <testSource>${java.source}</testSource>
-                                <testTarget>${java.target}</testTarget>
-                            </configuration>
-                        </execution>
-                    </executions>
+                    <configuration>
+                        <compilerArgument>-Xlint:all</compilerArgument>
+                        <showDeprecation>true</showDeprecation>
+                        <showWarnings>true</showWarnings>
+                        <source>${java.source}</source>
+                        <target>${java.target}</target>
+                        <testCompilerArgument>-Xlint:all</testCompilerArgument>
+                        <testSource>${java.source}</testSource>
+                        <testTarget>${java.target}</testTarget>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -303,43 +285,43 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
                     <version>${maven-enforcer-plugin.version}</version>
+                    <configuration>
+                        <rules>
+                            <dependencyConvergence>
+                                <uniqueVersions>true</uniqueVersions>
+                            </dependencyConvergence>
+                            <requireJavaVersion>
+                                <message>Java 1.6.0+ is required to build</message>
+                                <version>[1.6.0,)</version>
+                            </requireJavaVersion>
+                            <requireMavenVersion>
+                                <message>Maven 3.0.0+ is required to build</message>
+                                <version>[3.0.0,)</version>
+                            </requireMavenVersion>
+                            <requireNoRepositories>
+                                <allowedRepositories>
+                                    <allowedRepository>sonatype-nexus-snapshots</allowedRepository>
+                                </allowedRepositories>
+                                <message>External repositories should not be used (use a repository manager instead)</message>
+                            </requireNoRepositories>
+                            <requirePluginVersions>
+                                <message>Plugin versions should be explicitly specified</message>
+                            </requirePluginVersions>
+                            <requireReleaseDeps>
+                                <message>All dependencies should be released for us to release</message>
+                                <onlyWhenRelease>true</onlyWhenRelease>
+                            </requireReleaseDeps>
+                            <requireUpperBoundDeps>
+                                <message>Explicit direct dependencies shouldn't downgrade transitive dependencies</message>
+                            </requireUpperBoundDeps>
+                        </rules>
+                    </configuration>
                     <executions>
                         <execution>
                             <id>enforce</id>
                             <goals>
                                 <goal>enforce</goal>
                             </goals>
-                            <configuration>
-                                <rules>
-                                    <dependencyConvergence>
-                                        <uniqueVersions>true</uniqueVersions>
-                                    </dependencyConvergence>
-                                    <requireJavaVersion>
-                                        <message>Java 1.6.0+ is required to build</message>
-                                        <version>[1.6.0,)</version>
-                                    </requireJavaVersion>
-                                    <requireMavenVersion>
-                                        <message>Maven 3.0.0+ is required to build</message>
-                                        <version>[3.0.0,)</version>
-                                    </requireMavenVersion>
-                                    <requireNoRepositories>
-                                        <allowedRepositories>
-                                            <allowedRepository>sonatype-nexus-snapshots</allowedRepository>
-                                        </allowedRepositories>
-                                        <message>External repositories should not be used (use a repository manager instead)</message>
-                                    </requireNoRepositories>
-                                    <requirePluginVersions>
-                                        <message>Plugin versions should be explicitly specified</message>
-                                    </requirePluginVersions>
-                                    <requireReleaseDeps>
-                                        <message>All dependencies should be released for us to release</message>
-                                        <onlyWhenRelease>true</onlyWhenRelease>
-                                    </requireReleaseDeps>
-                                    <requireUpperBoundDeps>
-                                        <message>Explicit direct dependencies shouldn't downgrade transitive dependencies</message>
-                                    </requireUpperBoundDeps>
-                                </rules>
-                            </configuration>
                         </execution>
                     </executions>
                 </plugin>
@@ -362,19 +344,11 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <id>test</id>
-                            <goals>
-                                <goal>test</goal>
-                            </goals>
-                            <configuration>
-                                <parallel>both</parallel>
-                                <runOrder>random</runOrder>
-                                <threadCount>3</threadCount>
-                            </configuration>
-                        </execution>
-                    </executions>
+                    <configuration>
+                        <parallel>both</parallel>
+                        <runOrder>random</runOrder>
+                        <threadCount>3</threadCount>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -441,27 +415,11 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                 <plugins>
                     <plugin>
                         <groupId>com.github.github</groupId>
-                        <artifactId>downloads-maven-plugin</artifactId>
-                        <version>${downloads-maven-plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <id>upload</id>
-                                <goals>
-                                    <goal>upload</goal>
-                                </goals>
-                                <phase>install</phase>
-                                <configuration>
-                                    <description>${project.version} release of ${project.name}</description>
-                                    <includeAttached>true</includeAttached>
-                                    <override>true</override>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>com.github.github</groupId>
                         <artifactId>site-maven-plugin</artifactId>
                         <version>${site-maven-plugin.version}</version>
+                        <configuration>
+                            <message>Creating site for ${project.version}</message>
+                        </configuration>
                         <executions>
                             <execution>
                                 <id>site</id>
@@ -469,9 +427,6 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                                     <goal>site</goal>
                                 </goals>
                                 <phase>site</phase>
-                                <configuration>
-                                    <message>Creating site for ${project.version}</message>
-                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
@@ -490,15 +445,15 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-checkstyle-plugin</artifactId>
                             <version>${maven-checkstyle-plugin.version}</version>
+                            <configuration>
+                                <configLocation>${maven-checkstyle-plugin.configLocation}</configLocation>
+                            </configuration>
                             <executions>
                                 <execution>
                                     <id>check</id>
                                     <goals>
                                         <goal>check</goal>
                                     </goals>
-                                    <configuration>
-                                        <configLocation>${maven-checkstyle-plugin.configLocation}</configLocation>
-                                    </configuration>
                                 </execution>
                             </executions>
                             <dependencies>
@@ -513,6 +468,12 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-pmd-plugin</artifactId>
                             <version>${maven-pmd-plugin.version}</version>
+                            <configuration>
+                                <rulesets>
+                                    <ruleset>${maven-pmd-plugin.ruleset}</ruleset>
+                                </rulesets>
+                                <targetJdk>${java.target}</targetJdk>
+                            </configuration>
                             <executions>
                                 <execution>
                                     <id>check</id>
@@ -527,12 +488,6 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                                     </goals>
                                 </execution>
                             </executions>
-                            <configuration>
-                                <rulesets>
-                                    <ruleset>${maven-pmd-plugin.ruleset}</ruleset>
-                                </rulesets>
-                                <targetJdk>${java.target}</targetJdk>
-                            </configuration>
                             <dependencies>
                                 <dependency>
                                     <groupId>au.com.permeance</groupId>
@@ -545,6 +500,17 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                             <groupId>org.codehaus.mojo</groupId>
                             <artifactId>cobertura-maven-plugin</artifactId>
                             <version>${cobertura-maven-plugin.version}</version>
+                            <configuration>
+                                <check>
+                                    <haltOnFailure>true</haltOnFailure>
+                                    <branchRate>${cobertura-maven-plugin.branchRate}</branchRate>
+                                    <lineRate>${cobertura-maven-plugin.lineRate}</lineRate>
+                                    <totalBranchRate>${cobertura-maven-plugin.totalBranchRate}</totalBranchRate>
+                                    <totalLineRate>${cobertura-maven-plugin.totalLineRate}</totalLineRate>
+                                    <packageLineRate>${cobertura-maven-plugin.packageLineRate}</packageLineRate>
+                                    <packageBranchRate>${cobertura-maven-plugin.packageBranchRate}</packageBranchRate>
+                                </check>
+                            </configuration>
                             <executions>
                                 <execution>
                                     <id>clean</id>
@@ -557,17 +523,6 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                                     <goals>
                                         <goal>check</goal>
                                     </goals>
-                                    <configuration>
-                                        <check>
-                                            <haltOnFailure>true</haltOnFailure>
-                                            <branchRate>${cobertura-maven-plugin.branchRate}</branchRate>
-                                            <lineRate>${cobertura-maven-plugin.lineRate}</lineRate>
-                                            <totalBranchRate>${cobertura-maven-plugin.totalBranchRate}</totalBranchRate>
-                                            <totalLineRate>${cobertura-maven-plugin.totalLineRate}</totalLineRate>
-                                            <packageLineRate>${cobertura-maven-plugin.packageLineRate}</packageLineRate>
-                                            <packageBranchRate>${cobertura-maven-plugin.packageBranchRate}</packageBranchRate>
-                                        </check>
-                                    </configuration>
                                 </execution>
                             </executions>
                         </plugin>
@@ -575,16 +530,16 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                             <groupId>org.codehaus.mojo</groupId>
                             <artifactId>findbugs-maven-plugin</artifactId>
                             <version>${findbugs-maven-plugin.version}</version>
+                            <configuration>
+                                <threshold>${findbugs-maven-plugin.threshold}</threshold>
+                                <effort>${findbugs-maven-plugin.effort}</effort>
+                            </configuration>
                             <executions>
                                 <execution>
                                     <id>check</id>
                                     <goals>
                                         <goal>check</goal>
                                     </goals>
-                                    <configuration>
-                                        <threshold>${findbugs-maven-plugin.threshold}</threshold>
-                                        <effort>${findbugs-maven-plugin.effort}</effort>
-                                    </configuration>
                                 </execution>
                             </executions>
                         </plugin>
@@ -592,16 +547,16 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                             <groupId>org.codehaus.mojo</groupId>
                             <artifactId>javancss-maven-plugin</artifactId>
                             <version>${javancss-maven-plugin.version}</version>
+                            <configuration>
+                                <ccnLimit>${javancss-maven-plugin.ccnLimit}</ccnLimit>
+                                <ncssLimit>${javancss-maven-plugin.ncssLimit}</ncssLimit>
+                            </configuration>
                             <executions>
                                 <execution>
                                     <id>check</id>
                                     <goals>
                                         <goal>check</goal>
                                     </goals>
-                                    <configuration>
-                                        <ccnLimit>${javancss-maven-plugin.ccnLimit}</ccnLimit>
-                                        <ncssLimit>${javancss-maven-plugin.ncssLimit}</ncssLimit>
-                                    </configuration>
                                 </execution>
                             </executions>
                         </plugin>
@@ -609,34 +564,34 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
                             <groupId>org.pitest</groupId>
                             <artifactId>pitest-maven</artifactId>
                             <version>${pitest-maven.version}</version>
+                            <configuration>
+                                <avoidCallsTo>
+                                    <avoidCallsTo>java.util.logging</avoidCallsTo>
+                                    <avoidCallsTo>org.apache.log4j</avoidCallsTo>
+                                    <avoidCallsTo>org.slf4j</avoidCallsTo>
+                                    <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+                                    <avoidCallsTo>com.liferay.portal.kernel.log</avoidCallsTo>
+                                </avoidCallsTo>
+                                <mutateStaticInitializers>true</mutateStaticInitializers>
+                                <mutators>
+                                    <mutator>CONDITIONALS_BOUNDARY</mutator>
+                                    <mutator>NEGATE_CONDITIONALS</mutator>
+                                    <mutator>MATH</mutator>
+                                    <mutator>INCREMENTS</mutator>
+                                    <mutator>INVERT_NEGS</mutator>
+                                    <mutator>INLINE_CONSTS</mutator>
+                                    <mutator>RETURN_VALS</mutator>
+                                    <mutator>VOID_METHOD_CALLS</mutator>
+                                    <mutator>NON_VOID_METHOD_CALLS</mutator>
+                                    <mutator>CONSTRUCTOR_CALLS</mutator>
+                                </mutators>
+                            </configuration>
                             <executions>
                                 <execution>
                                     <id>mutationCoverage</id>
                                     <goals>
                                         <goal>mutationCoverage</goal>
                                     </goals>
-                                    <configuration>
-                                        <avoidCallsTo>
-                                            <avoidCallsTo>java.util.logging</avoidCallsTo>
-                                            <avoidCallsTo>org.apache.log4j</avoidCallsTo>
-                                            <avoidCallsTo>org.slf4j</avoidCallsTo>
-                                            <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
-                                            <avoidCallsTo>com.liferay.portal.kernel.log</avoidCallsTo>
-                                        </avoidCallsTo>
-                                        <mutateStaticInitializers>true</mutateStaticInitializers>
-                                        <mutators>
-                                            <mutator>CONDITIONALS_BOUNDARY</mutator>
-                                            <mutator>NEGATE_CONDITIONALS</mutator>
-                                            <mutator>MATH</mutator>
-                                            <mutator>INCREMENTS</mutator>
-                                            <mutator>INVERT_NEGS</mutator>
-                                            <mutator>INLINE_CONSTS</mutator>
-                                            <mutator>RETURN_VALS</mutator>
-                                            <mutator>VOID_METHOD_CALLS</mutator>
-                                            <mutator>NON_VOID_METHOD_CALLS</mutator>
-                                            <mutator>CONSTRUCTOR_CALLS</mutator>
-                                        </mutators>
-                                    </configuration>
                                 </execution>
                             </executions>
                         </plugin>

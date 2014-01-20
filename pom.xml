@@ -14,8 +14,7 @@ FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with
 permeance-parent. If not, see <http://www.gnu.org/licenses />.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -27,7 +26,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
 
     <groupId>au.com.permeance</groupId>
     <artifactId>permeance-parent</artifactId>
-    <version>0.8-SNAPSHOT</version>
+    <version>0.8</version>
     <packaging>pom</packaging>
 
     <name>permeance-parent</name>
@@ -71,7 +70,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
         <connection>scm:git:git@github.com:permeance/permeance-parent.git</connection>
         <developerConnection>scm:git:git@github.com:permeance/permeance-parent.git</developerConnection>
         <url>https://github.com/permeance/permeance-parent</url>
-        <tag>HEAD</tag>
+        <tag>permeance-parent-0.8</tag>
     </scm>
 
     <issueManagement>

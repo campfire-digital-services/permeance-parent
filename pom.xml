@@ -148,7 +148,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
         <javancss-maven-plugin.ncssLimit>100</javancss-maven-plugin.ncssLimit>
         <maven-checkstyle-plugin.configLocation>/permeance-checkstyle.xml</maven-checkstyle-plugin.configLocation>
         <maven-pmd-plugin.ruleset>/permeance-pmd.xml</maven-pmd-plugin.ruleset>
-        <maven-release-plugin.version>2.4.2</maven-release-plugin.version>
+        <maven-release-plugin.version>2.5.1</maven-release-plugin.version>
     </properties>
 
     <reporting>

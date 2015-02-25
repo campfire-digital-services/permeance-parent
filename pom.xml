@@ -26,7 +26,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
 
     <groupId>au.com.permeance</groupId>
     <artifactId>permeance-parent</artifactId>
-    <version>0.10</version>
+    <version>0.11-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>permeance-parent</name>
@@ -70,7 +70,7 @@ permeance-parent. If not, see <http://www.gnu.org/licenses />.
         <connection>scm:git:git@github.com:permeance/permeance-parent.git</connection>
         <developerConnection>scm:git:git@github.com:permeance/permeance-parent.git</developerConnection>
         <url>https://github.com/permeance/permeance-parent</url>
-        <tag>permeance-parent-0.10</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
